@@ -85,6 +85,7 @@ Includes sections for:
 
 smart-job-matcher/
 ├── main.html # Landing page
+├──main.css #styles of css
 ├── index.html # Job matcher interface (resume upload)
 ├── index.css # Styles for job matcher
 ├── det.html # AI-powered resume builder
