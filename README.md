@@ -1,6 +1,7 @@
-## 💼 AI Resume Builder & Smart Job Matcher
+# 💼 AI Resume Builder & Smart Job Matcher
 
-An intelligent, dual-purpose web application that empowers users to create AI-enhanced resumes and receive personalized job role recommendations based on resume content. This solution leverages AI, NLP, and resume parsing to assist job seekers with career advancement
+An intelligent, dual-purpose web application that empowers users to create AI-enhanced resumes and receive personalized job role recommendations based on resume content. This solution leverages AI, NLP, and resume parsing to assist job seekers with career advancement.
+
 ---
 
 ## 📸 Demo Screenshots
@@ -17,12 +18,11 @@ An intelligent, dual-purpose web application that empowers users to create AI-en
 ![image](https://github.com/user-attachments/assets/2222270b-f6fe-4a27-8d9e-8af01c513b72)
 ![image](https://github.com/user-attachments/assets/9d2f8549-571c-4e09-8d72-c84077903b67)
 ![image](https://github.com/user-attachments/assets/75ee9999-373e-4fcf-995f-0caa70442e50)
-![image1](https://github.com/user-attachments/assets/c961fe7a-5ec6-4e44-a048-455d90e83915)
-![image2](https://github.com/user-attachments/assets/4a02f913-b36d-45f2-be79-f14d18be8baf)
-![image3](https://github.com/user-attachments/assets/fc23f992-9525-49bc-985f-ede5276c4cfb)
+![image](https://github.com/user-attachments/assets/c961fe7a-5ec6-4e44-a048-455d90e83915)
+![image](https://github.com/user-attachments/assets/4a02f913-b36d-45f2-be79-f14d18be8baf)
+![image](https://github.com/user-attachments/assets/fc23f992-9525-49bc-985f-ede5276c4cfb)
 
 ---
-
 
 ## 🚀 Features
 
@@ -44,8 +44,6 @@ An intelligent, dual-purpose web application that empowers users to create AI-en
 - 📤 **PDF Export**  
   Instantly export the finalized resume in PDF format.
 
-
-
 - 🔒 **Data Privacy & Security**  
   Resume data is processed temporarily and never stored permanently.
 
@@ -64,20 +62,46 @@ Includes sections for:
 
 ### 🤖 AI-Powered Enhancements
 
-- Grammar correction and auto-formatting
-- Auto-generated summary from skills and experience
-- Smart capitalization and punctuation fixes
-- PDF Export functionality
+- Grammar correction and auto-formatting  
+- Auto-generated summary from skills and experience  
+- Smart capitalization and punctuation fixes  
+- PDF Export functionality  
+
+---
+
+## 💳 Pricing Page Overview (premium.html + premium.css)
+
+This section powers the **premium subscription plans** selection interface. Users can view discounted pricing, choose a plan, and securely proceed with a purchase.
+
+## 📸 Demo Screenshots
+
+![image](https://github.com/user-attachments/assets/06347bfd-c01d-40e8-9bcd-97a94c30e33d)
+![image](https://github.com/user-attachments/assets/ec726c85-e5f9-4ff0-b352-4b70aebfef90)
+
+
+### 🌟 Highlights
+
+- Responsive UI with mobile optimization
+- Discount banner for India-based users
+- 3 subscription options:
+  - Monthly
+  - Quarterly (Most Popular)
+  - Yearly (Best Value)
+- Trustpilot-style testimonials
+- FAQ section for support
+- Secure payment note (via Paddle)
+- Footer with social links, contact, and navigation
 
 ---
 
 ## 🛠️ Tech Stack
 
-| Technology | Purpose |
-|------------|---------|
-| **HTML, CSS, JS** | Frontend interface and interactivity |
-| **Font Awesome** | Icons and visual enhancements |
-| **html2pdf.js** | Exporting resumes to PDF |
+| Technology      | Purpose                                  |
+|-----------------|------------------------------------------|
+| HTML, CSS, JS   | Frontend interface and interactivity     |
+| Font Awesome    | Icons and visual enhancements            |
+| html2pdf.js     | Exporting resumes to PDF                 |
+| Google Fonts    | Modern font styling (Poppins)            |
 
 ---
 
@@ -85,9 +109,11 @@ Includes sections for:
 
 smart-job-matcher/
 ├── main.html # Landing page
-├──main.css #styles of css
+├── main.css # General styles
 ├── index.html # Job matcher interface (resume upload)
 ├── index.css # Styles for job matcher
 ├── det.html # AI-powered resume builder
 ├── det.css # Styles for resume builder
+├── premium.html # Pricing and subscription plans
+├── premium.css # Styles for pricing page
 └── README.md # Project documentation (this file)
