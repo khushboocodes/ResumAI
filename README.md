@@ -1,4 +1,5 @@
-💼 AI Resume Builder & Smart Job Matcher
+## 💼 AI Resume Builder & Smart Job Matcher
+
 An intelligent, dual-purpose web application that empowers users to create AI-enhanced resumes and receive personalized job role recommendations based on resume content. This solution leverages AI, NLP, and resume parsing to assist job seekers with career advancement
 ---
 
