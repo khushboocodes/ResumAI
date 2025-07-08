@@ -1,0 +1,275 @@
+/* ===== Reset & Base ===== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Poppins', sans-serif;
+  background: #f4f3ff;
+  color: #333;
+  padding: 40px 20px;
+}
+
+/* ===== Container Layout ===== */
+.pricing-container {
+  max-width: 1120px;
+  margin: auto;
+  display: flex;
+  gap: 40px;
+  flex-wrap: wrap;
+}
+
+/* ===== Left: Plan Column ===== */
+.plans {
+  flex: 1 1 500px;
+  background: #ffffff;
+  border-radius: 16px;
+  padding: 40px;
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.06);
+}
+
+.plans h2 {
+  font-size: 1.6rem;
+  font-weight: 600;
+  margin-bottom: 10px;
+  color: #2a0a6a;
+}
+
+.subheading {
+  color: #666;
+  font-size: 0.95rem;
+  margin-bottom: 20px;
+}
+
+/* ===== Discount Banner ===== */
+.highlight-box {
+  background: linear-gradient(135deg, #ffe29f, #ffa99f);
+  color: #4e2604;
+  border: none;
+  padding: 16px 20px;
+  border-radius: 10px;
+  font-size: 0.95rem;
+  margin-bottom: 25px;
+}
+
+/* ===== Plan Cards ===== */
+.plan-option {
+  border: 2px solid #e0e0e0;
+  border-radius: 12px;
+  padding: 20px;
+  margin-bottom: 15px;
+  background: #fff;
+  position: relative;
+  display: flex;
+  gap: 12px;
+  align-items: flex-start;
+  cursor: pointer;
+  transition: transform 0.3s ease, background 0.3s, border-color 0.3s;
+}
+
+.plan-option:hover {
+  border-color: #a78bfa;
+  background: #f6f4ff;
+  transform: scale(1.03);
+}
+
+.plan-option input[type="radio"] {
+  margin-top: 6px;
+  transform: scale(1.2);
+  accent-color: #7c3aed;
+}
+
+.plan-details strong {
+  font-size: 1rem;
+  color: #1c1c1c;
+}
+
+.price {
+  font-size: 0.9rem;
+  color: #555;
+  margin-top: 5px;
+}
+
+.discount-label {
+  background: #fff1c1;
+  color: #222;
+  padding: 3px 8px;
+  border-radius: 6px;
+  font-size: 0.75rem;
+  margin-left: 8px;
+}
+
+/* ===== Badge (Tag) ===== */
+.badge {
+  position: absolute;
+  top: 14px;
+  right: 20px;
+  background: #7c3aed;
+  color: #fff;
+  padding: 4px 10px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  border-radius: 12px;
+  text-transform: uppercase;
+  transition: transform 0.3s ease-in-out;
+}
+
+/* ===== CTA Button ===== */
+.btn-purchase {
+  background: linear-gradient(135deg, #7c3aed, #5b21b6);
+  color: #fff;
+  border: none;
+  width: 100%;
+  font-weight: 600;
+  font-size: 1rem;
+  border-radius: 10px;
+  padding: 14px;
+  margin-top: 20px;
+  cursor: pointer;
+  transition: transform 0.3s ease, background 0.3s;
+}
+
+.btn-purchase:hover {
+  background: linear-gradient(135deg, #6d28d9, #4c1d95);
+  transform: scale(1.04);
+}
+
+/* ===== Payment Note ===== */
+.secure-note {
+  font-size: 0.8rem;
+  color: #777;
+  margin-top: 12px;
+  text-align: center;
+  line-height: 1.5;
+}
+
+/* ===== Right: Testimonial & FAQ ===== */
+.testimonial-faq {
+  flex: 1 1 500px;
+  background: #f0efff;
+  border-radius: 16px;
+  padding: 30px;
+}
+
+/* ===== Trustpilot Block ===== */
+.trustpilot-rating {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: #1e1e1e;
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.stars {
+  color: #00b67a;
+  font-weight: 700;
+  margin-left: 10px;
+}
+
+/* ===== Testimonial Card ===== */
+.testimonial-box {
+  background: #fff;
+  border-radius: 10px;
+  border: 1px solid #ddd;
+  padding: 20px;
+  font-size: 0.95rem;
+  line-height: 1.5;
+  color: #444;
+  margin-bottom: 30px;
+}
+
+.user-info {
+  display: flex;
+  align-items: center;
+  margin-top: 12px;
+}
+
+.user-info img {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  margin-right: 10px;
+}
+
+.user-name {
+  font-weight: 600;
+  font-size: 0.9rem;
+}
+
+/* ===== FAQ Section ===== */
+.faq-section h3 {
+  font-size: 1rem;
+  font-weight: 600;
+  margin-bottom: 10px;
+  color: #333;
+}
+
+.faq-item {
+  margin-bottom: 16px;
+}
+
+.faq-item h4 {
+  font-size: 0.95rem;
+  color: #2a2a2a;
+  margin-bottom: 5px;
+}
+
+.faq-item p {
+  font-size: 0.9rem;
+  color: #555;
+  line-height: 1.5;
+}
+
+/* ===== Footer ===== */
+footer.section-p1 {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  padding: 40px;
+  background-color: #333;
+  color: #fff;
+  margin-bottom: 0;
+}
+
+footer .col {
+  flex: 1 1 200px;
+  margin: 10px;
+}
+
+footer h4 {
+  margin-bottom: 10px;
+}
+
+footer a {
+  display: block;
+  margin: 5px 0;
+  color: #ccc;
+  text-decoration: none;
+}
+
+footer a:hover {
+  color: #fff;
+}
+
+footer .icon i {
+  margin-right: 10px;
+  font-size: 1.2rem;
+  cursor: pointer;
+}
+
+/* ===== Responsive ===== */
+@media (max-width: 960px) {
+  .pricing-container {
+    flex-direction: column;
+    gap: 24px;
+  }
+
+  .plans,
+  .testimonial-faq {
+    flex: 1 1 100%;
+    padding: 24px 20px;
+  }
+}
