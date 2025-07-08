@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Smart Job Matcher</title>
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" />
+  <link rel="Stylesheet" href="index.css">
+ 
+</head>
+<body>
+
+  <header>
+    <h1>Smart Job Matcher</h1>
+    <p>Upload your resume and discover your best-fit career path</p>
+  </header>
+
+  <main>
+    <div class="sidebar">
+      <h2>Upload Resume</h2>
+      <form id="resumeForm" onsubmit="matchJobs(event)" enctype="multipart/form-data">
+        <div class="form-group">
+          <label for="resumeFile">Resume (PDF Only)</label>
+          <input type="file" id="resumeFile" name="resumeFile" accept=".pdf" required />
+        </div>
+        <div class="form-group">
+          <button type="submit">Analyze Resume</button>
+        </div>
+      </form>
+    </div>
+
+    <div class="content">
+      <h2>Best Fit Role</h2>
+      <div id="roleBanner"></div>
+
+      <h2>Top Job Matches</h2>
+      <div id="jobResults"></div>
+    </div>
+  </main>
+
+  <script>
+    function matchJobs(event) {
+      event.preventDefault();
+      const fileInput = document.getElementById('resumeFile');
+      const formData = new FormData();
+      formData.append('resumeFile', fileInput.files[0]);
+
+      fetch('/match', {
+        method: 'POST',
+        body: formData
+      })
+      .then(res => res.json())
+      .then(data => {
+        const roleBanner = document.getElementById('roleBanner');
+        const jobResults = document.getElementById('jobResults');
+        roleBanner.innerHTML = '';
+        jobResults.innerHTML = '';
+
+        if (data.error) {
+          jobResults.innerHTML = `<p style='color:red;'>${data.error}</p>`;
+          return;
+        }
+
+        roleBanner.innerHTML = `
+          <div class="role-suggestion">
+            <strong>Suggested Role:</strong> ${data.best_role} (${data.role_score}%)
+          </div>
+        `;
+
+        data.matches.forEach(job => {
+          jobResults.innerHTML += `
+            <div class="job-match">
+              <div class="job-title">
+                <a href="${job.url}" target="_blank">${job.title}</a>
+              </div>
+              <div class="job-desc">
+                ${job.company} · ${job.location} · Match: ${job.score}%
+              </div>
+              <p>${job.description}</p>
+            </div>
+          `;
+        });
+      })
+      .catch(err => {
+        document.getElementById('jobResults').innerHTML = `<p style='color:red;'>${err.message}</p>`;
+      });
+    }
+  </script>
+
+
+
+  <section id="details-advanced">
+  <h2>Unlock the Full Power of AI in Resume Building</h2>
+
+  <div class="details-container">
+    <div class="detail-box">
+      <i class="fas fa-brain"></i>
+      <h3>Smart Keyword Integration</h3>
+      <p>Automatically includes industry-relevant keywords to pass ATS (Applicant Tracking Systems) filters.</p>
+    </div>
+
+    <div class="detail-box">
+      <i class="fas fa-trophy"></i>
+      <h3>Success-Driven Templates</h3>
+      <p>Choose from designs used by top professionals to increase interview calls and recruiter attention.</p>
+    </div>
+
+    <div class="detail-box">
+      <i class="fas fa-language"></i>
+      <h3>Multilingual Support</h3>
+      <p>Create resumes in multiple languages to apply for global opportunities and international companies.</p>
+    </div>
+
+    <div class="detail-box">
+      <i class="fas fa-lock"></i>
+      <h3>Data Privacy & Security</h3>
+      <p>All your resume data is securely stored and never shared. Privacy-first approach you can trust.</p>
+    </div>
+  </div>
+</section>
+
+<footer class="section-p1">
+        <div class="col">
+           
+            <h4>Contact</h4>
+            <p><strong>Address:</strong> 234 govindpuri Road, Gwalior</p>
+            <p><strong>Phone:</strong> +01 2222 0611/(+91)01 2546 0619</p>
+            <p><strong>Hours:</strong>10:00-18:00. Mon-Sat</p>
+
+            <div class="follow">
+                <h4>follow us </h4>
+                <div class="icon">
+                    <i class="fab fa-facebook-f "></i>
+                    <i class="fab fa-twitter"></i>
+                    <i class="fab fa-instagram"></i>
+                    <i class="fab fa-pinterest-p"></i>
+                    <i class="fab fa-youtube"></i>
+                </div>
+            </div>
+        </div>
+
+        <div class="col">
+            <h4>About</h4>
+            <a href="#">About Us</a>
+            <a href="#">Delivery information</a>
+            <a href="#">Privacy Policy</a>
+            <a href="#">Term & conditions</a>
+            <a href="#">Contact Us</a>
+        </div>
+
+        <div class="col">
+            <h4>MY Account</h4>
+            <a href="#">Sing in</a>
+            <a href="#">View cart</a>
+            <a href="#">My Wishlist</a>
+            <a href="#">Track My Order</a>
+            <a href="#">Help</a>
+        </div>
+
+        
+    </footer>
+
+</body>
+</html>
