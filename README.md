@@ -1,7 +1,5 @@
-# 💼 Smart Job Matcher
-
-**Smart Job Matcher** is an AI-powered web application that allows users to upload their resumes (PDF only) and receive the best-fit job role along with top matching job listings. It leverages resume parsing and intelligent matching logic to guide users toward the most suitable career opportunities.
-
+💼 AI Resume Builder & Smart Job Matcher
+An intelligent, dual-purpose web application that empowers users to create AI-enhanced resumes and receive personalized job role recommendations based on resume content. This solution leverages AI, NLP, and resume parsing to assist job seekers with career advancement
 ---
 
 ## 📸 Demo Screenshots
