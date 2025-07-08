@@ -44,8 +44,7 @@ An intelligent, dual-purpose web application that empowers users to create AI-en
 - 📤 **PDF Export**  
   Instantly export the finalized resume in PDF format.
 
-- 🌐 **Multilingual Interface Ready**  
-  Easily extendable to support multiple languages.
+
 
 - 🔒 **Data Privacy & Security**  
   Resume data is processed temporarily and never stored permanently.
