@@ -1,0 +1,226 @@
+:root {
+  --primary-color: #0052cc;
+  --primary-dark: #003d99;
+  --warning-bg: #fff5f5;
+  --warning-border: #e74c3c;
+  --warning-text: #e74c3c;
+  --surface: #ffffff;
+  --surface-alt: #f0f2f5;
+  --shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+}
+
+body {
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  background:linear-gradient(180deg,rgb(91, 91, 183), black);
+  margin: 2rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+  justify-content: center;
+  color: #222;
+}
+
+#input-section,
+#preview-section {
+  background: var(--surface);
+  padding: 2rem;
+  border-radius: 10px;
+  width: 450px;
+  box-shadow: var(--shadow);
+  max-height: 90vh;
+  overflow-y: auto;
+}
+
+#input-section > h2,
+#preview-section > h2 {
+  color: var(--primary-color);
+  font-size: 1.4rem;
+  margin-bottom: 1rem;
+  border-bottom: 2px solid var(--primary-color);
+  padding-bottom: 0.5rem;
+}
+
+label {
+  display: block;
+  margin-top: 1rem;
+  font-weight: 600;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="tel"],
+textarea {
+  width: 100%;
+  padding: 0.6rem;
+  margin-top: 0.4rem;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  font-size: 1rem;
+  transition: border-color 0.3s ease;
+}
+
+input:focus,
+textarea:focus {
+  border-color: var(--primary-color);
+  outline: none;
+}
+
+textarea {
+  min-height: 70px;
+  resize: vertical;
+}
+
+button {
+  margin-top: 1.5rem;
+  width: 100%;
+  padding: 0.75rem;
+  font-size: 1rem;
+  font-weight: 600;
+  background: var(--primary-color);
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.25s ease;
+}
+
+button:disabled {
+  background: #999;
+  cursor: not-allowed;
+}
+
+button:not(:disabled):hover {
+  background: var(--primary-dark);
+}
+
+.btn-small {
+  width: auto;
+  flex: 1 1 45%;
+  padding: 0.5rem;
+  font-size: 0.9rem;
+}
+
+.grammar-warning {
+  background: var(--warning-bg);
+  border-left: 5px solid var(--warning-border);
+  padding: 0.5rem 1rem;
+  margin-top: 0.5rem;
+  color: var(--warning-text);
+  font-size: 0.9rem;
+  border-radius: 6px;
+}
+
+#theme-selector {
+  margin: 1rem 0 1.5rem;
+  font-weight: 600;
+}
+
+#theme-selector label {
+  margin-right: 1rem;
+  cursor: pointer;
+}
+
+#resume-template {
+  font-family: Arial, Helvetica, sans-serif;
+  background: var(--surface);
+  color: #222;
+  padding: 2rem;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  width: 600px;
+  box-sizing: border-box;
+  line-height: 1.5;
+}
+
+#resume-template h1 {
+  font-size: 26px;
+  color: var(--primary-color);
+  margin-bottom: 0.5rem;
+  text-align: center;
+}
+
+#resume-template h2 {
+  font-size: 18px;
+  color: var(--primary-color);
+  margin-top: 1.5rem;
+  border-bottom: 1px solid var(--primary-color);
+  padding-bottom: 0.3rem;
+}
+
+#resume-template p,
+#resume-template ul {
+  font-size: 14.5px;
+  margin-top: 0.3rem;
+}
+
+#resume-template ul {
+  padding-left: 20px;
+}
+
+#resume-template li {
+  margin-bottom: 5px;
+}
+
+#resume-template .contact-info {
+  font-size: 14px;
+  margin-bottom: 1rem;
+  text-align: center;
+  color: #555;
+}
+
+#additional-sections-options {
+  margin-top: 1.2rem;
+  font-weight: 600;
+}
+
+#additional-sections-inputs label {
+  display: block;
+  margin-top: 1rem;
+  font-weight: 600;
+}
+
+#additional-sections-inputs textarea {
+  width: 100%;
+  padding: 0.5rem;
+  margin-top: 0.3rem;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 1rem;
+  resize: vertical;
+  min-height: 60px;
+}
+
+.additional-section {
+  margin-top: 1.5rem;
+}
+
+#career-summary-buttons {
+  display: flex;
+  gap: 1rem;
+  margin-top: 0.8rem;
+}
+
+#career-summary-buttons button {
+  background: #007acc;
+}
+
+#career-summary-buttons button:hover:not(:disabled) {
+  background: #005fa3;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  body {
+    flex-direction: column;
+    align-items: center;
+    margin: 1rem;
+  }
+
+  #input-section,
+  #preview-section,
+  #resume-template {
+    width: 100%;
+    max-width: 100%;
+  }
+}
+

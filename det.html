@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Advanced AI Resume Builder</title>
+  <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" />
+  <link rel="Stylesheet" href="det.css">
+ 
+ 
+</head>
+<body>
+
+<section id="input-section">
+  <h2>Enter Your Resume Details</h2>
+
+  <label for="fullName">Full Name *</label>
+  <input type="text" id="fullName" placeholder="John Doe" required />
+
+  <label for="email">Email *</label>
+  <input type="email" id="email" placeholder="john@example.com" required />
+
+  <label for="phone">Phone</label>
+  <input type="tel" id="phone" placeholder="+1 234 567 8901" />
+
+  <label for="careerSummary">Career Summary / Objective *</label>
+  <textarea id="careerSummary" required></textarea>
+  <div id="career-summary-buttons">
+    <button type="button" id="checkCareerGrammarBtn">Check Grammar</button>
+    <button type="button" id="autoGenerateSummaryBtn">Auto-generate Summary</button>
+  </div>
+  <div id="careerGrammarWarnings" class="grammar-warning" style="display:none;"></div>
+
+  <label for="skills">Key Skills (comma separated) *</label>
+  <input type="text" id="skills" placeholder="JavaScript, Project Management, Communication" required />
+
+  <label for="experience">Work Experience *</label>
+  <textarea id="experience" required></textarea>
+  <button type="button" id="checkExperienceGrammarBtn">Check Grammar</button>
+  <div id="experienceGrammarWarnings" class="grammar-warning" style="display:none;"></div>
+
+  <label for="education">Education</label>
+  <textarea id="education"></textarea>
+
+  <label for="certifications">Certifications</label>
+  <textarea id="certifications"></textarea>
+
+  <div id="theme-selector">
+    <label><input type="radio" name="colorTheme" value="#0052cc" checked> Blue</label>
+    <label><input type="radio" name="colorTheme" value="#009688"> Teal</label>
+    <label><input type="radio" name="colorTheme" value="#e67e22"> Orange</label>
+    <label><input type="radio" name="colorTheme" value="#8e44ad"> Purple</label>
+    <label><input type="radio" name="colorTheme" value="#c0392b"> Red</label>
+    <label><input type="radio" name="colorTheme" value="#27ae60"> Green</label>
+  </div>
+
+  <h3>Select Additional Sections</h3>
+  <div id="additional-sections-options">
+    <label><input type="checkbox" value="Projects"> Projects</label><br />
+    <label><input type="checkbox" value="Languages"> Languages</label><br />
+    <label><input type="checkbox" value="Awards & Honors"> Awards & Honors</label><br />
+    <label><input type="checkbox" value="Volunteer Experience"> Volunteer Experience</label><br />
+    <label><input type="checkbox" value="Interests"> Interests</label><br />
+    <label><input type="checkbox" value="Publications"> Publications</label><br />
+    <label><input type="checkbox" value="References"> References</label><br />
+    <label><input type="checkbox" value="Additional Information"> Additional Information</label><br />
+  </div>
+
+  <div id="additional-sections-inputs"></div>
+
+  <button id="generateBtn">Generate AI Resume</button>
+
+
+</section>
+
+<section id="preview-section">
+  <h2>AI Generated Resume Preview</h2>
+  <div id="resume-template" style="--primary-color:#0052cc;">
+    <h1>Your Name</h1>
+    <p class="contact-info">Email: your.email@example.com | Phone: 123-456-7890</p>
+
+    <h2>Career Summary</h2>
+    <p>Your career summary will appear here.</p>
+
+    <h2>Skills</h2>
+    <ul><li>No skills added.</li></ul>
+
+    <h2>Work Experience</h2>
+    <p>No experience added.</p>
+
+    <h2>Education</h2>
+    <p>No education details added.</p>
+
+    <h2>Certifications</h2>
+    <p>No certifications added.</p>
+  </div>
+  <button id="downloadPDFBtn" disabled>Download PDF</button>
+</section>
+
+<script src="https://cdn.jsdelivr.net/npm/html2pdf.js@0.10.1/dist/html2pdf.bundle.min.js"></script>
+
+<script>
+  const generateBtn = document.getElementById('generateBtn');
+  const downloadBtn = document.getElementById('downloadPDFBtn');
+  const resumeTemplate = document.getElementById('resume-template');
+  const careerSummary = document.getElementById('careerSummary');
+  const experience = document.getElementById('experience');
+  const careerGrammarWarnings = document.getElementById('careerGrammarWarnings');
+  const experienceGrammarWarnings = document.getElementById('experienceGrammarWarnings');
+
+  const additionalSectionsOptions = document.getElementById('additional-sections-options');
+  const additionalSectionsInputs = document.getElementById('additional-sections-inputs');
+
+  const selectedAdditionalSections = new Map();
+
+  function aiEnhanceText(text) {
+    if (!text) return '';
+    let enhanced = text.trim();
+    if (enhanced.length > 0) {
+      enhanced = enhanced.charAt(0).toUpperCase() + enhanced.slice(1);
+      if (!/[.!?]$/.test(enhanced)) enhanced += '.';
+    }
+    enhanced = enhanced.replace(/\bi am\b/gi, 'I am');
+    enhanced = enhanced.replace(/\bi have\b/gi, 'I have');
+    enhanced = enhanced.replace(/\bi\b/g, 'I');
+    return enhanced;
+  }
+
+  function parseSkills(skillsText) {
+    return skillsText.split(',').map(skill => skill.trim()).filter(Boolean);
+  }
+  function simpleGrammarCheck(text) {
+    const errors = [];
+    if (text.match(/\bi am\b/i)) errors.push('Consider capitalizing "I am".');
+    if (text.match(/\bi\b/)) errors.push('Use uppercase "I" for pronoun.');
+    if (!/[.!?]$/.test(text.trim())) errors.push('Consider adding a period at the end.');
+    return errors;
+  }
+
+  function showGrammarWarnings(container, errors) {
+    if (errors.length === 0) {
+      container.style.display = 'none';
+      container.textContent = '';
+    } else {
+      container.style.display = 'block';
+      container.textContent = errors.join(' ');
+    }
+  }
+
+  document.getElementById('checkCareerGrammarBtn').addEventListener('click', () => {
+    const enhanced = aiEnhanceText(careerSummary.value);
+    careerSummary.value = enhanced;
+    showGrammarWarnings(careerGrammarWarnings, simpleGrammarCheck(enhanced));
+  });
+
+  document.getElementById('checkExperienceGrammarBtn').addEventListener('click', () => {
+    const enhanced = aiEnhanceText(experience.value);
+    experience.value = enhanced;
+    showGrammarWarnings(experienceGrammarWarnings, simpleGrammarCheck(enhanced));
+  });
+
+  document.querySelectorAll('input[name="colorTheme"]').forEach(radio => {
+    radio.addEventListener('change', () => {
+      resumeTemplate.style.setProperty('--primary-color', radio.value);
+    });
+  });
+
+  additionalSectionsOptions.querySelectorAll('input[type="checkbox"]').forEach(checkbox => {
+    checkbox.addEventListener('change', () => {
+      const sectionName = checkbox.value;
+      if (checkbox.checked) {
+      
+        const label = document.createElement('label');
+        label.setAttribute('for', `section-${sectionName}`);
+        label.textContent = sectionName;
+
+        const textarea = document.createElement('textarea');
+        textarea.id = `section-${sectionName}`;
+        textarea.placeholder = `Enter your ${sectionName} details here...`;
+
+        additionalSectionsInputs.appendChild(label);
+        additionalSectionsInputs.appendChild(textarea);
+
+        selectedAdditionalSections.set(sectionName, textarea);
+      } else {
+
+        const textarea = selectedAdditionalSections.get(sectionName);
+        if (textarea) {
+          if (textarea.previousSibling) textarea.previousSibling.remove(); 
+          textarea.remove(); 
+          selectedAdditionalSections.delete(sectionName);
+        }
+      }
+    });
+  });
+
+
+  document.getElementById('autoGenerateSummaryBtn').addEventListener('click', () => {
+    const skillsText = document.getElementById('skills').value.trim();
+    const experienceText = experience.value.trim();
+
+    if (!skillsText && !experienceText) {
+      alert('Please enter some Skills or Work Experience to generate a summary.');
+      return;
+    }
+
+
+    if (skillsText) {
+      const skillsArr = parseSkills(skillsText);
+      if (skillsArr.length > 3) {
+        const firstThree = skillsArr.slice(0,3).join(', ');
+        summary += firstThree + ", and other areas";
+      } else if (skillsArr.length > 0) {
+        summary += skillsArr.join(', ');
+      } else {
+        summary += "various relevant skills";
+      }
+    } else {
+      summary += "various relevant skills";
+    }
+
+    if (experienceText) {
+
+      const firstSentence = experienceText.split(/[.!?]/)[0];
+      summary += `. Proven track record including: ${firstSentence.trim()}.`;
+    } else {
+      summary += ".";
+    }
+
+    careerSummary.value = aiEnhanceText(summary);
+    careerGrammarWarnings.style.display = 'none';
+  });
+
+  generateBtn.addEventListener('click', () => {
+    generateBtn.disabled = true;
+    generateBtn.textContent = 'Generating...';
+    downloadBtn.disabled = true;
+
+    const fullName = document.getElementById('fullName').value.trim();
+    const email = document.getElementById('email').value.trim();
+    const phone = document.getElementById('phone').value.trim();
+    const careerSummaryVal = careerSummary.value.trim();
+    const skills = document.getElementById('skills').value.trim();
+    const experienceVal = experience.value.trim();
+    const education = document.getElementById('education').value.trim();
+    const certifications = document.getElementById('certifications').value.trim();
+
+    if (!fullName || !email || !careerSummaryVal || !skills || !experienceVal) {
+      alert('Please fill in all required fields marked with *');
+      generateBtn.disabled = false;
+      generateBtn.textContent = 'Generate AI Resume';
+      return;
+    }
+
+    const enhancedSummary = aiEnhanceText(careerSummaryVal);
+    const enhancedExperience = aiEnhanceText(experienceVal);
+    const enhancedEducation = education ? aiEnhanceText(education) : 'N/A';
+    const enhancedCertifications = certifications ? aiEnhanceText(certifications) : 'N/A';
+    const skillList = parseSkills(skills);
+
+    resumeTemplate.querySelector('h1').textContent = fullName;
+    resumeTemplate.querySelector('.contact-info').textContent =
+      `Email: ${email}` + (phone ? ` | Phone: ${phone}` : '');
+
+    resumeTemplate.querySelectorAll('h2')[0].nextElementSibling.textContent = enhancedSummary;
+
+    const skillsUl = resumeTemplate.querySelectorAll('h2')[1].nextElementSibling;
+    skillsUl.innerHTML = '';
+    if (skillList.length === 0) {
+      skillsUl.innerHTML = '<li>No skills added.</li>';
+    } else {
+      skillList.forEach(skill => {
+        const li = document.createElement('li');
+        li.textContent = skill;
+        skillsUl.appendChild(li);
+      });
+    }
+
+    resumeTemplate.querySelectorAll('h2')[2].nextElementSibling.textContent = enhancedExperience;
+    resumeTemplate.querySelectorAll('h2')[3].nextElementSibling.textContent = enhancedEducation;
+    resumeTemplate.querySelectorAll('h2')[4].nextElementSibling.textContent = enhancedCertifications;
+
+    const existingAdditionalSections = resumeTemplate.querySelectorAll('.additional-section');
+    existingAdditionalSections.forEach(section => section.remove());
+
+    selectedAdditionalSections.forEach((textarea, sectionName) => {
+      const content = aiEnhanceText(textarea.value.trim()) || 'No details added.';
+      const sectionHeading = document.createElement('h2');
+      sectionHeading.textContent = sectionName;
+      sectionHeading.classList.add('additional-section');
+
+      const sectionContent = document.createElement('p');
+      sectionContent.textContent = content;
+      sectionContent.classList.add('additional-section');
+
+      resumeTemplate.appendChild(sectionHeading);
+      resumeTemplate.appendChild(sectionContent);
+    });
+
+    downloadBtn.disabled = false;
+    generateBtn.disabled = false;
+    generateBtn.textContent = 'Generate AI Resume';
+  });
+
+  function checkAtsScore() {
+  if (!resumePreview.innerHTML.trim()) {
+    alert("Generate the resume first.");
+    return;
+  }
+
+  const keywords = ["experience", "education", "skills", "team", "managed", "project", "certification", "award", "language"];
+  let score = 0;
+  const text = resumePreview.textContent.toLowerCase();
+
+  keywords.forEach(word => {
+    if (text.includes(word)) score += 12;
+  });
+  if (score > 100) score = 100;
+
+  atsScoreDisplay.textContent = `ATS Friendliness Score: ${score}%`;
+  if(score >= 75){
+    atsScoreDisplay.style.color = "green";
+  } else if(score >= 50){
+    atsScoreDisplay.style.color = "orange";
+  } else {
+    atsScoreDisplay.style.color = "red";
+  }
+}
+
+
+  downloadBtn.addEventListener('click', () => {
+    const opt = {
+      margin:       0.5,
+      filename:     'AI_Resume.pdf',
+      image:        { type: 'jpeg', quality: 0.98 },
+      html2canvas:  { scale: 2 },
+      jsPDF:        { unit: 'in', format: 'letter', orientation: 'portrait' }
+    };
+    html2pdf().set(opt).from(resumeTemplate).save();
+  });
+</script>
+
+</body>
+</html>
