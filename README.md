@@ -62,9 +62,6 @@ Includes sections for:
 |------------|---------|
 | **HTML, CSS, JS** | Frontend interface and interactivity |
 | **Font Awesome** | Icons and visual enhancements |
-| **html2pdf.js** | Exporting resumes to PDF |
-| **Python (Flask)** | Backend resume processing and job matching |
-| **PyPDF2 / NLP tools** | Resume parsing and keyword analysis |
 
 ---
 
