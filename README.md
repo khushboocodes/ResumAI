@@ -41,10 +41,6 @@
 |------|-------------|
 | **HTML, CSS, JS** | Frontend UI and interactions |
 | **Font Awesome** | Icons for UI enhancement |
-| **Python (Flask)** | Backend API for resume parsing and job matching |
-| **Pyresparser** | Open-source resume parsing tool |
-| **NLP Models (spaCy)** | Used for entity extraction |
-| **REST API** | Frontend-backend communication |
 
 ---
 
