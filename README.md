@@ -87,10 +87,7 @@ This section powers the **premium subscription plans** selection interface. User
   - Monthly
   - Quarterly (Most Popular)
   - Yearly (Best Value)
-- Trustpilot-style testimonials
-- FAQ section for support
-- Secure payment note (via Paddle)
-- Footer with social links, contact, and navigation
+
 
 ---
 
