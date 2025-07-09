@@ -26,61 +26,17 @@ An intelligent, dual-purpose web application that empowers users to create AI-en
 
 ## 🚀 Features
 
-- 📄 **Resume Upload & Parsing**  
-  Upload a resume (PDF) and extract structured details like name, skills, education, and experience.
-
-- 🔍 **AI-Based Role Suggestion**  
-  Recommends the most relevant job role using intelligent analysis.
-
-- 🎯 **Top Job Match Recommendations**  
-  Lists best-matching job titles with descriptions, company names, and matching scores.
-
-- 🧠 **Keyword Optimization**  
-  Helps optimize resumes to be ATS-friendly using keyword suggestions.
-
-- 📝 **AI Resume Builder (det.html)**  
-  Create polished, professional resumes through a smart input form with grammar correction, AI-generated summaries, and formatting assistance.
-
-- 📤 **PDF Export**  
-  Instantly export the finalized resume in PDF format.
-
-- 🔒 **Data Privacy & Security**  
-  Resume data is processed temporarily and never stored permanently.
-
---
- 
-- 📤 Upload PDF resume file
-- ✅ Validates file type (PDF only)
-- 📬 Sends the resume to the backend `/match` endpoint
-- 🎯 Displays:
-  - Best-suited role with match percentage
-  - List of job matches (title, company, location, description, score)
-- ⚠️ Shows success and error messages
-- ⏱️ Auto aborts request after 15 seconds
-- 🔁 Clears previous results on new file upload
-
---
-
-- 📄 Extracts text from PDF and DOCX resumes
-- 🧠 Matches resumes to jobs using intelligent keyword comparison
-- 📊 Calculates match scores based on skill overlap
-- 🔍 Returns best-fit job roles with Top 5 job matches
-- 🧾 Provides detailed job info:
-      - Title
-      - Company
-      - Location
-      - Match Score
-      - Job Link
-
---
-
-- 📤 Resume Upload (PDF/DOCX)
-- 📑 Text Extraction from Resume
-- 🔍 Job Role Matching using Keywords
-- 🧠 Best Role Suggestion with Match Score
-- 🎯 Top 5 Job Recommendations
-
-
+| Feature                    | Description                                                                |
+| -------------------------- | -------------------------------------------------------------------------- |
+| *Resume Upload*          | Upload .pdf or .docx files securely                                    |
+| *Text Extraction*        | Extracts text (mock) from uploaded resumes                                 |
+| *Job Matching*           | Matches resume to pre-defined job list using keyword similarity            |
+| *ATS Scoring*            | Compares resume with job description text to give a percentage match score |
+| *Downloadable Resources* | Sample resume, job description template, and resume writing tips           |
+| *Logging*                | Debug and error logs saved to file and console                             |
+| *Error Handling*         | Custom 404 and 500 error pages with logging                                |
+| *Directory Creation*     | Creates required folders dynamically if not present                        |
+| *Secure File Handling*   | Renames and saves uploads safely using secure_filename()                 |
 
 ## 📝 Dynamic Resume Input Form (det.html)
 
@@ -126,22 +82,15 @@ This section powers the **premium subscription plans** selection interface. User
 
 ## 🛠️ Tech Stack
 
-| **Technology**             | **Purpose**                                                         |
-| -------------------------- | ------------------------------------------------------------------- |
-| **HTML, CSS, JS**          | Frontend structure, styling, and client-side interactivity          |
-| **JavaScript (ES6)**       | DOM manipulation, form handling, Fetch API requests                 |
-| **Font Awesome**           | Icon usage for better UI/UX visuals                                 |
-| **html2pdf.js**            | Convert HTML resume to downloadable PDF                             |
-| **Google Fonts** (Poppins) | Stylish typography for professional look                            |
-| **Flask**                  | Backend framework to route, render templates, handle logic and APIs |
-| **Flask-CORS**             | Allow cross-origin resource sharing between frontend & backend      |
-| **PyPDF2**                 | Extract text content from PDF files (resumes)                       |
-| **docx2txt**               | Extract text content from DOCX files (resumes)                      |
-| **Werkzeug**	             | Secure file handling (secure_filename)                              |
-| **CORS (flask_cors)**	     | Enables cross-origin requests                                       |
-| **Logging**	               | For debugging and tracking errors                                   |
-| **Jinja2 Templates**	     | Rendering dynamic HTML pages                                        |
-
+| Technology                     | Purpose                                                  |
+| ------------------------------ | -------------------------------------------------------- |
+| *Flask*                      | Python web framework for building routes and backend     |
+| *HTML, CSS, JS*              | Frontend interface and styling (with Bootstrap/JS files) |
+| *Jinja2*                     | Templating engine for rendering dynamic HTML             |
+| *Werkzeug*                   | Secure file handling (uploading resumes)                 |
+| *Python Standard Libraries*  | OS handling, logging, datetime, etc.                     |
+| *Logging*                    | Logs errors/debug info to console and file               |
+| *Mock AI (Keyword Matching)* | Basic text similarity without ML libraries               |
 ## 📁 Folder Structure
 
 smart-job-matcher/
