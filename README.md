@@ -47,6 +47,18 @@ An intelligent, dual-purpose web application that empowers users to create AI-en
 - 🔒 **Data Privacy & Security**  
   Resume data is processed temporarily and never stored permanently.
 
+
+  
+- 📤 Upload PDF resume file
+- ✅ Validates file type (PDF only)
+- 📬 Sends the resume to the backend `/match` endpoint
+- 🎯 Displays:
+  - Best-suited role with match percentage
+  - List of job matches (title, company, location, description, score)
+- ⚠️ Shows success and error messages
+- ⏱️ Auto aborts request after 15 seconds
+- 🔁 Clears previous results on new file upload
+
 ---
 
 ## 📝 Dynamic Resume Input Form (det.html)
@@ -93,12 +105,13 @@ This section powers the **premium subscription plans** selection interface. User
 
 ## 🛠️ Tech Stack
 
-| Technology      | Purpose                                  |
-|-----------------|------------------------------------------|
-| HTML, CSS, JS   | Frontend interface and interactivity     |
-| Font Awesome    | Icons and visual enhancements            |
-| html2pdf.js     | Exporting resumes to PDF                 |
-| Google Fonts    | Modern font styling (Poppins)            |
+| Technology      | Purpose                                              |
+|-----------------|------------------------------------------------------|
+| HTML, CSS, JS   | Frontend interface and interactivity                 |
+|JavaScript (ES6) |DOM manipulation, interactivity, and fetch API usage  |
+| Font Awesome    | Icons and visual enhancements                        |
+| html2pdf.js     | Exporting resumes to PDF                             |
+| Google Fonts    | Modern font styling (Poppins)                        |
 
 ---
 
