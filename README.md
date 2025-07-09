@@ -109,16 +109,33 @@ A dedicated *pricing page* that displays subscription options with responsive de
 
 ## 🛠️ Tech Stack
 
-| Technology                     | Purpose                                                  |
-| ------------------------------ | -------------------------------------------------------- |
-| *Flask*                        | Python web framework for building routes and backend     |
-| *HTML, CSS, JS*                | Frontend interface and styling (with Bootstrap/JS files) |
-| *Jinja2*                       | Templating engine for rendering dynamic HTML             |
-| *Werkzeug*                     | Secure file handling (uploading resumes)                 |
-| *Python Standard Libraries*    | OS handling, logging, datetime, etc.                     |
-| *Logging*                      | Logs errors/debug info to console and file               |
-| *Mock AI (Keyword Matching)*   | Basic text similarity without ML libraries               |
-
+| *Category*           | *Technology / Tool*               | *Purpose / Use*                                                           |
+| ---------------------- | ----------------------------------- | --------------------------------------------------------------------------- |
+| *Backend (Core)*     | Python                              | Core programming language                                                   |
+|                        | Flask                               | Web framework to build routes, APIs, and handle HTTP requests               |
+|                        | Jinja2                              | Templating engine to render dynamic HTML                                    |
+|                        | Werkzeug                            | Secure file upload handling (secure_filename)                             |
+|                        | Logging                             | Error and activity tracking (debug logs, error logs)                        |
+|                        | OS, datetime (Python stdlib)        | File system operations and timestamping                                     |
+| *Resume Processing*  | Mock extraction logic               | Simulated .pdf and .docx text extraction                                |
+|                        | File Uploads                        | Handles PDF/DOCX uploads via form                                           |
+|                        | (Option: PyPDF2, python-docx)       | For real PDF and DOCX text extraction (not yet added)                       |
+| *Job Matching & ATS* | Custom similarity function          | Basic keyword matching (set intersection logic)                             |
+|                        | Predefined Job List (Python)        | List of sample job descriptions for mock matching                           |
+|                        | ATS Score                           | Compares resume content with job description and returns a percentage score |
+| *Frontend*           | HTML5                               | Page structure and content                                                  |
+|                        | CSS                                | Styling and layout                                                          |
+|                        | JavaScript                         | Frontend logic/interactivity                                                |
+| *File Management*    | uploads/ directory                | Stores uploaded resumes temporarily                                         |
+|                        | downloads/ directory              | Stores dynamically generated files (resume samples, tips, templates)        |
+|                        | templates/ directory              | Contains HTML templates (main.html, ats.html, etc.)                     |
+|                        | static/ directory                 | CSS and JS files for frontend styling and behavior                          |
+| *Configuration*      | DevelopmentConfig                 | Centralized config (UPLOAD\_FOLDER, LOG\_FILE, etc.)                        |
+|                        | Environment Variables               | For PORT, SESSION_SECRET, and other secrets                             |
+|                        | app.run(...)                      | Launches the development server                                             |
+| *Optional / Future*  | PyPDF2 / python-docx                | Real text extraction from PDF/DOCX                                          |
+|                        | sentence transformers | For machine learning and NLP-based job matching                             |
+|                        | Flask-Login        | User authentication                                                                         |
 ---
 
 
@@ -126,7 +143,7 @@ A dedicated *pricing page* that displays subscription options with responsive de
 
 
 - *Used Pre-trained Model*        
-- *Used ChatGPT to fix few errors* 
+- *Used ChatGPT to fix few errors and research* 
 
 ---
 
