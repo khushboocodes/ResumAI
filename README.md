@@ -98,8 +98,8 @@ This section powers the **premium subscription plans** selection interface. User
 ## Tools Used
 
 
-** Used Pre-trained Model**
-** Used ChatGPT to fix few errors**
+| *Used Pre-trained Model*        |
+| *Used ChatGPT to fix few errors*|
 
 ---
 
