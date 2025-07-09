@@ -47,7 +47,7 @@ An intelligent, dual-purpose web application that empowers users to create AI-en
 - 🔒 **Data Privacy & Security**  
   Resume data is processed temporarily and never stored permanently.
 
--
+--
  
 - 📤 Upload PDF resume file
 - ✅ Validates file type (PDF only)
@@ -59,7 +59,7 @@ An intelligent, dual-purpose web application that empowers users to create AI-en
 - ⏱️ Auto aborts request after 15 seconds
 - 🔁 Clears previous results on new file upload
 
--
+--
 
 - 📄 Extracts text from PDF and DOCX resumes
 - 🧠 Matches resumes to jobs using intelligent keyword comparison
@@ -72,7 +72,7 @@ An intelligent, dual-purpose web application that empowers users to create AI-en
       - Match Score
       - Job Link
 
--
+--
 
 - 📤 Resume Upload (PDF/DOCX)
 - 📑 Text Extraction from Resume
