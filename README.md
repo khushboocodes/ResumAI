@@ -72,6 +72,8 @@ This section powers the **premium subscription plans** selection interface. User
 ## 📸 Final Outcome
 
 ![Screenshot 2025-07-09 211421](https://github.com/user-attachments/assets/6db3e327-46b6-4339-85f4-591ccf599f3e)
+![Screenshot 2025-07-09 215355](https://github.com/user-attachments/assets/1752a458-59e6-4e2b-a8ae-b80e38d71263)
+
 
 
 
