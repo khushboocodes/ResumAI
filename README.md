@@ -91,6 +91,19 @@ This section powers the **premium subscription plans** selection interface. User
 | *Python Standard Libraries*  | OS handling, logging, datetime, etc.                     |
 | *Logging*                    | Logs errors/debug info to console and file               |
 | *Mock AI (Keyword Matching)* | Basic text similarity without ML libraries               |
+
+---
+
+
+## Tools Used
+
+
+** Used Pre-trained Model**
+** Used ChatGPT to fix few errors**
+
+---
+
+
 ## 📁 Folder Structure
 
 smart-job-matcher/
