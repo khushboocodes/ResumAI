@@ -59,6 +59,11 @@ An intelligent, dual-purpose web application that empowers users to create AI-en
 - ⏱️ Auto aborts request after 15 seconds
 - 🔁 Clears previous results on new file upload
 
+✅ Extracts text from PDF and DOCX resumes.
+🧠 Matches resumes to jobs using keyword comparison.
+📊 Calculates match scores based on skill overlap.
+🔍 Returns best-fit job roles with top 5 job matches.
+🧾 Provides job details like title, company, location, score, and link.
 ---
 
 ## 📝 Dynamic Resume Input Form (det.html)
@@ -105,25 +110,36 @@ This section powers the **premium subscription plans** selection interface. User
 
 ## 🛠️ Tech Stack
 
-| Technology      | Purpose                                              |
-|-----------------|------------------------------------------------------|
-| HTML, CSS, JS   | Frontend interface and interactivity                 |
-|JavaScript (ES6) |DOM manipulation, interactivity, and fetch API usage  |
-| Font Awesome    | Icons and visual enhancements                        |
-| html2pdf.js     | Exporting resumes to PDF                             |
-| Google Fonts    | Modern font styling (Poppins)                        |
+| **Technology**             | **Purpose**                                                         |
+| -------------------------- | ------------------------------------------------------------------- |
+| **HTML, CSS, JS**          | Frontend structure, styling, and client-side interactivity          |
+| **JavaScript (ES6)**       | DOM manipulation, form handling, Fetch API requests                 |
+| **Font Awesome**           | Icon usage for better UI/UX visuals                                 |
+| **html2pdf.js**            | Convert HTML resume to downloadable PDF                             |
+| **Google Fonts** (Poppins) | Stylish typography for professional look                            |
+| **Flask**                  | Backend framework to route, render templates, handle logic and APIs |
+| **Flask-CORS**             | Allow cross-origin resource sharing between frontend & backend      |
+| **PyPDF2**                 | Extract text content from PDF files (resumes)                       |
+| **docx2txt**               | Extract text content from DOCX files (resumes)                      |
 
----
 
 ## 📁 Folder Structure
 
 smart-job-matcher/
-├── main.html # Landing page
-├── main.css # General styles
-├── index.html # Job matcher interface (resume upload)
-├── index.css # Styles for job matcher
-├── det.html # AI-powered resume builder
-├── det.css # Styles for resume builder
-├── premium.html # Pricing and subscription plans
-├── premium.css # Styles for pricing page
-└── README.md # Project documentation (this file)
+├── app.py                  # Main Flask app (connects everything)
+├── resume_matcher.py       # NEW: Resume processing logic
+├── templates/
+│   ├── main.html           # Landing page
+│   ├── index.html          # Job matcher interface (resume upload)
+│   ├── det.html            # AI-powered resume builder
+│   ├── premium.html        # Pricing and subscription plans
+│             
+├── static/
+│   ├── main.css            # General styles
+│   ├── index.css           # Styles for job matcher
+│   ├── det.css             # Styles for resume builder
+│   ├── premium.css         # Styles for pricing page
+│   └── js/
+│       └── main.js      # Resume upload handler
+├── uploads/                # (auto-created if not present)
+├── README.md               # Project documentation
