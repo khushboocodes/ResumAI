@@ -48,7 +48,7 @@ An intelligent, dual-purpose web application that empowers users to create AI-en
   Resume data is processed temporarily and never stored permanently.
 
 
-  
+ 
 - 📤 Upload PDF resume file
 - ✅ Validates file type (PDF only)
 - 📬 Sends the resume to the backend `/match` endpoint
@@ -59,12 +59,26 @@ An intelligent, dual-purpose web application that empowers users to create AI-en
 - ⏱️ Auto aborts request after 15 seconds
 - 🔁 Clears previous results on new file upload
 
-✅ Extracts text from PDF and DOCX resumes.
-🧠 Matches resumes to jobs using keyword comparison.
-📊 Calculates match scores based on skill overlap.
-🔍 Returns best-fit job roles with top 5 job matches.
-🧾 Provides job details like title, company, location, score, and link.
----
+- 📄 Extracts text from PDF and DOCX resumes
+- 🧠 Matches resumes to jobs using intelligent keyword comparison
+- 📊 Calculates match scores based on skill overlap
+- 🔍 Returns best-fit job roles with Top 5 job matches
+- 🧾 Provides detailed job info:
+      - Title
+      - Company
+      - Location
+      - Match Score
+      - Job Link
+
+
+
+- 📤 Resume Upload (PDF/DOCX)
+- 📑 Text Extraction from Resume
+- 🔍 Job Role Matching using Keywords
+- 🧠 Best Role Suggestion with Match Score
+- 🎯 Top 5 Job Recommendations
+
+
 
 ## 📝 Dynamic Resume Input Form (det.html)
 
