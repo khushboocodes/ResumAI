@@ -68,14 +68,39 @@ This section powers the **premium subscription plans** selection interface. User
 ![image](https://github.com/user-attachments/assets/ec726c85-e5f9-4ff0-b352-4b70aebfef90)
 
 
+## 📸 Final Outcome
+
+![Screenshot 2025-07-09 211421](https://github.com/user-attachments/assets/bd0137c0-c4d5-4ad5-ac9b-1d15e83943a9)
+
+
 ### 🌟 Highlights
 
-- Responsive UI with mobile optimization
-- Discount banner for India-based users
-- 3 subscription options:
-  - Monthly
-  - Quarterly (Most Popular)
-  - Yearly (Best Value)
+| Highlights               | Description                                                                               |
+|--------------------------|-------------------------------------------------------------------------------------------|
+| *Resume Upload*          | Secure upload of .pdf or .docx resumes                                                    |
+| *Text Extraction*        | Extracts resume content using mock parsing logic                                          |
+| *Job Matching*           | Suggests suitable job roles using keyword-based similarity                                |
+| *ATS Scoring*            | Compares resume with job descriptions and provides a match percentage                     |
+| *Dynamic Resume Builder* | AI-powered input form with sections for personal, educational, and professional details   |
+| *AI Enhancements*        | Grammar correction, auto-formatting, and smart summary generation                         |
+| *PDF Export*               | Download the completed resume in a clean PDF format                                       |
+| *Error Handling & Logging* | Custom 404/500 error pages and logs for debugging                                       |
+| *Secure File Handling*     | Uses secure_filename() and creates required directories automatically                       |
+
+---
+
+## 💳 Premium Subscription Plans
+
+A dedicated *pricing page* that displays subscription options with responsive design and country-specific discounts.
+
+### 🌐 Responsive Features:
+
+- 3 Subscription Tiers:
+  - *Monthly*
+  - *Quarterly* (Most Popular)
+  - *Yearly* (Best Value)
+
+---
 
 
 ---
@@ -84,13 +109,13 @@ This section powers the **premium subscription plans** selection interface. User
 
 | Technology                     | Purpose                                                  |
 | ------------------------------ | -------------------------------------------------------- |
-| *Flask*                      | Python web framework for building routes and backend     |
-| *HTML, CSS, JS*              | Frontend interface and styling (with Bootstrap/JS files) |
-| *Jinja2*                     | Templating engine for rendering dynamic HTML             |
-| *Werkzeug*                   | Secure file handling (uploading resumes)                 |
-| *Python Standard Libraries*  | OS handling, logging, datetime, etc.                     |
-| *Logging*                    | Logs errors/debug info to console and file               |
-| *Mock AI (Keyword Matching)* | Basic text similarity without ML libraries               |
+| *Flask*                        | Python web framework for building routes and backend     |
+| *HTML, CSS, JS*                | Frontend interface and styling (with Bootstrap/JS files) |
+| *Jinja2*                       | Templating engine for rendering dynamic HTML             |
+| *Werkzeug*                     | Secure file handling (uploading resumes)                 |
+| *Python Standard Libraries*    | OS handling, logging, datetime, etc.                     |
+| *Logging*                      | Logs errors/debug info to console and file               |
+| *Mock AI (Keyword Matching)*   | Basic text similarity without ML libraries               |
 
 ---
 
