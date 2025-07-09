@@ -137,7 +137,10 @@ This section powers the **premium subscription plans** selection interface. User
 | **Flask-CORS**             | Allow cross-origin resource sharing between frontend & backend      |
 | **PyPDF2**                 | Extract text content from PDF files (resumes)                       |
 | **docx2txt**               | Extract text content from DOCX files (resumes)                      |
-
+| **Werkzeug**	             | Secure file handling (secure_filename)                              |
+| **CORS (flask_cors)**	     | Enables cross-origin requests                                       |
+| **Logging**	               | For debugging and tracking errors                                   |
+| **Jinja2 Templates**	     | Rendering dynamic HTML pages                                        |
 
 ## 📁 Folder Structure
 
